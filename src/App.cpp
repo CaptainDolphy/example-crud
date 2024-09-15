@@ -3,6 +3,7 @@
 
 #include "controller/UserController.hpp"
 #include "controller/StaticController.hpp"
+#include "controller/FileController.hpp"
 
 #include "oatpp-swagger/Controller.hpp"
 
@@ -23,6 +24,7 @@ void run() {
 
   router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
   router->addController(StaticController::createShared());
+  router->addController(FileController::createShared());
 
   /* Get connection handler component */
   OATPP_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, connectionHandler);
